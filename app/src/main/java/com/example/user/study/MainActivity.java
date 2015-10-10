@@ -4,13 +4,40 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ListView mListStudy;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mListStudy = (ListView) findViewById(R.id.listStudy);
+
+        List<String> studylist = new ArrayList<String>();
+        studylist.add("ライフサイクル");
+        studylist.add("Service");
+        studylist.add("ContentProvider");
+        studylist.add("Sqlite3");
+
+        ListAdapter adapter = new ArrayAdapter<String>
+                (this,android.R.layout.simple_list_item_1,studylist);
+        mListStudy.setAdapter(adapter);
+        //
+        String test = "";
+        //なんらかの入力
+        if(StringUtils.isEmpty(test)){
+            //
+        }
     }
 
     @Override
